@@ -1,29 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const estudiantesController = require('../controllers/estudiantesController.js');
 
 // FindAll
-router.get('/', (req, res) => {
-    res.json({msg: 'Consulta estudiantes'});
-});
-
-// FindById
-router.get('/:id', (req, res) => {
-    res.json({msg: 'Consulta un estudiante'});
-});
+router.get('/', estudiantesController.findAll);
 
 // Add
-router.post('/', (req, res) => {
-    res.json({msg: 'Ingreso de estudiantes'});
-});
+router.post('/', estudiantesController.add);
 
-// Edit
-router.put('/:id', (req, res) => {
-    res.json({msg: 'Actualización estudiantes'});
-});
-
-// Delete
-router.delete('/:id', (req, res) => {
-    res.json({msg: 'Borrado de estudiantes'});
-});
+router.route("/:id")
+    .get(estudiantesController.findById)
+    .put(estudiantesController.edit)
+    .delete(estudiantesController.delete)    
 
 module.exports = router;
