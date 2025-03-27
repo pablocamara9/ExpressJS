@@ -42,7 +42,7 @@ class EstudiantesController{
                 if(err) {
                     res.status(400).send(err);
                 }
-                res.status(201).json({ respuesta: 'Registro actualizado con éxito' });
+                res.status(201).json({ respuesta: 'Registro creado con éxito' });
             });
         } catch(err) {
             res.status(500).send(err.message);
