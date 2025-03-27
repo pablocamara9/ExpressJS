@@ -8,6 +8,9 @@ router.get('/', cursosController.findAll);
 // Add
 router.post('/', cursosController.add);
 
+// Gestionar la sociación con estudiantes
+router.post('/registraEstudiante', cursosController.asociarEstudiante);
+
 router.route("/:id")
     .get(cursosController.findById)
     .put(cursosController.edit)
