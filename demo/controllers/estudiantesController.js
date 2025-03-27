@@ -41,8 +41,7 @@ class EstudiantesController{
             [dni, nombre, apellido, email], (err, rows) => {
                 if(err) {
                     res.status(400).send(err);
-                }
-                if(rows.insertId) {
+                } else {
                     res.status(201).json({ respuesta: 'Registro creado con éxito' });
                 }
             });
